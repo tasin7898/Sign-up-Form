@@ -11,6 +11,7 @@
   --flex-row-gap: 1.5rem;
   --border-radius: 6.7px;
   --gap: 1rem;
+  --body-padding: 1.5rem;
   --form-padding: 1.2rem;
   --font-family: 'Arial', sans-serif;
   --title-font-size: 22px;
@@ -22,7 +23,7 @@
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: var(--body-padding);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,12 +53,13 @@ body {
   font-weight: 500;
   font-family: "Georgia", serif;
   text-align: center;
-  font-size: clamp(1rem, 2.5vw + 1.1rem, 1.2rem);
+  font-size: clamp(1rem, 2.3vw + 0.54rem, 1.3rem);;
 }
-input {
+input:not([id="offers"]) {
   border-radius: var(--border-radius);
   padding: 0.4rem;
   font-size: 1.067rem;
+  width: 90%
 }
 
 label:not([for="offers"]){
@@ -84,25 +86,21 @@ label:not([for="offers"]){
 input:not([id="offers"]):focus {
   outline: none;
 
-  border-color: var(--focus-color);
+  border: 2px solid var(--focus-color);
   
   box-shadow: 0 0 0 3px var(--focus-ring-color); 
 
 }
 
-input:required:valid {
+input:user-valid {
   outline: none;
-  border-color: var(--success-color);
+  border: 2px solid var(--success-color);
 }
 
-input:required:invalid {
+input:user-invalid {
   outline: none;
-  border-color: var(--error-color);
+  border: 2px solid var(--error-color);
 }
-
-
-
-
 
 
 .form-footer {
@@ -118,7 +116,7 @@ input:required:invalid {
   color: yellow;
 }
 header {
-  grid-column: 1 / -1;
+  
   display: flex;
   justify-content: center;
   align-items: center;
