@@ -2,37 +2,47 @@
   --bg-color: #f2f2f2;
   --form-bg-color: #fff;
   --border-color: lightgray;
-  --focus-color: #4CAF50;
+  --focus-color: #1080e9;
   --error-color: #ff4d4d;
-  --focus-ring-color: rgba(76, 175, 80, 0.5);
+  --success-color: rgb(35, 230, 35);
+  --focus-ring-color: rgba(14, 133, 231, 0.5);
   --btn-bg-color: #e7870a;
   --btn-hover-bg-color: #45a049;
-  
+  --flex-row-gap: 1.5rem;
   --border-radius: 6.7px;
-  --gap: 0.67rem;
-  --form-padding: 1rem;
+  --gap: 1rem;
+  --form-padding: 1.2rem;
   --font-family: 'Arial', sans-serif;
-
+  --title-font-size: 22px;
 }
 
 * {
+  
   box-sizing: border-box;
 }
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   font-family: var(--font-family);
   background-color: var(--bg-color);
-  display: grid;
+  background: url("https://uploads.coppermind.net/Vin_mistborn_by_Steve_Argyle.jpg");
 
- 
+  background-size: cover;
+  background-repeat: no-repeat;
+  
 }
 #form {
+  border-radius: var(--border-radius);
   display: grid;
   gap: var(--gap);
   max-width: 600px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin: 0 auto;
+  
   padding: var(--form-padding);
   background-color: var(--form-bg-color);
 }
@@ -42,6 +52,7 @@ body {
   font-weight: 500;
   font-family: "Georgia", serif;
   text-align: center;
+  font-size: clamp(1rem, 2.5vw + 1.1rem, 1.2rem);
 }
 input {
   border-radius: var(--border-radius);
@@ -70,9 +81,92 @@ label:not([for="offers"]){
   cursor: pointer;
 }
 
-input:focus {
+input:not([id="offers"]):focus {
   outline: none;
-  border-color: var(
+
+  border-color: var(--focus-color);
+  
+  box-shadow: 0 0 0 3px var(--focus-ring-color); 
+
 }
+
+input:required:valid {
+  outline: none;
+  border-color: var(--success-color);
+}
+
+input:required:invalid {
+  outline: none;
+  border-color: var(--error-color);
+}
+
+
+
+
+
+
+.form-footer {
+  text-align: center;
+  
+  color: white;
+  mix-blend-mode: exclusion;
+  
+}
+
+.form-footer a {
+  text-decoration: none;
+  color: yellow;
+}
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+  
+}
+.logo img {
+  
+  width: clamp(80px, 25vw, 200px);
+  height: auto;
+  align-self: center;
+  padding-top: 2rem;
+  
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+}
+
+.title {
+  font-size: var(--title-font-size);
+  margin: 2rem auto;
+  text-align: center;
+  color: white;
+  mix-blend-mode: exclusion;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: calc(var(--title-font-size) - 6px);
+  color: white;
+  mix-blend-mode: exclusion;
+  margin: 0 auto;
+  text-align:center
+  
+}
+
+@media screen and (min-width: 768px) {
+  #form {
+    grid-template-columns: 1fr 1fr;
+  }
+  :root {
+    --title-font-size: 28px;
+  }
+}
+
+
 
 
