@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #f2f2f2;
-  --form-bg-color: #fff;
+  --bg-color: rgba(0, 0, 0);
+  --form-bg-color: lightyellow;
   --border-color: lightgray;
   --focus-color: #1080e9;
   --error-color: #ff4d4d;
@@ -12,7 +12,7 @@
   --border-radius: 6.7px;
   --gap: 1rem;
   --body-padding: 1.5rem;
-  --form-padding: 1.2rem;
+  --form-padding: 1.8rem;
   --font-family: 'Arial', sans-serif;
   --title-font-size: 22px;
 }
@@ -23,28 +23,41 @@
 }
 body {
   margin: 0;
-  padding: var(--body-padding);
+  
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  
   font-family: var(--font-family);
   background-color: var(--bg-color);
-  background: url("https://uploads.coppermind.net/Vin_mistborn_by_Steve_Argyle.jpg");
-
-  background-size: cover;
-  background-repeat: no-repeat;
+  
   
 }
+main {
+  background-color: #c05804f5;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  width: 1080px;
+
+}
+.bg-img {
+  background: url("https://i.pinimg.com/1200x/3d/4f/b4/3d4fb4fb57477702225edfad30bcacd2.jpg");
+  background-position: 90% 20%; 
+  background-size: cover;  
+}
+
 #form {
-  border-radius: var(--border-radius);
+  
   display: grid;
   gap: var(--gap);
-  max-width: 600px;
+ 
   grid-template-columns: 1fr;
   margin: 0 auto;
   
-  padding: var(--form-padding);
+  padding: var(--form-padding) var(--form-padding) 3rem;
   background-color: var(--form-bg-color);
 }
 
@@ -53,13 +66,17 @@ body {
   font-weight: 500;
   font-family: "Georgia", serif;
   text-align: center;
-  font-size: clamp(1rem, 2.3vw + 0.54rem, 1.3rem);;
+  font-size: clamp(0.9rem, 2vw + 0.45rem, 1.1rem);;
 }
 input:not([id="offers"]) {
   border-radius: var(--border-radius);
   padding: 0.4rem;
   font-size: 1.067rem;
   width: 90%
+}
+input {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;;
 }
 
 label:not([for="offers"]){
@@ -70,6 +87,7 @@ label:not([for="offers"]){
 .button {
   grid-column: 1 / -1;
   padding: 0.6rem 0.67rem;
+  margin: 0.5rem;
   justify-self: center;
   border-radius: var(--border-radius);
   width: auto;
@@ -103,11 +121,13 @@ input:user-invalid {
 }
 
 
-.form-footer {
+.form-footer div {
   text-align: center;
   
   color: white;
-  mix-blend-mode: exclusion;
+  
+  padding: 1rem;
+  margin: 1rem;
   
 }
 
@@ -116,7 +136,7 @@ input:user-invalid {
   color: yellow;
 }
 header {
-  
+  background-color: #c05804f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,23 +154,23 @@ header {
 .titles {
   display: flex;
   flex-direction: column;
-  
+  margin: 0 1.5rem;
   align-items: center;
 }
 
 .title {
   font-size: var(--title-font-size);
-  margin: 2rem auto;
+  
   text-align: center;
-  color: white;
-  mix-blend-mode: exclusion;
+  color: lightgoldenrodyellow;
+  
   font-weight: 800;
 }
 
 .subtitle {
   font-size: calc(var(--title-font-size) - 6px);
-  color: white;
-  mix-blend-mode: exclusion;
+  color: lightyellow;
+ 
   margin: 0 auto;
   text-align:center
   
